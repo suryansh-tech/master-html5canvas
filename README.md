@@ -2,6 +2,8 @@
 
 ![banner](ewihhfoub.png)
 
+- follow me on linkedin `suryansh.`
+
 ## What is CANVAS:
 
 ### HTML5 Canvas is a feature of HTML5 that allows users to draw 2D shapes and bitmap images, interact with graphics on a page, and create animations
