@@ -198,15 +198,65 @@ function loadImage(index){
 // clearing the canavs
 context.clearRect(0, 0, offsetX, offsetY);
 ```
-2. drawing image on canavs from offsetX to offSetY upto newWidth and newHeight
+
+2. Setting image smoothing
 
 ```javascript
-// clearing the canavs
-context.clearRect(0, 0, offsetX, offsetY);
+//sets image smoothing
+context.imageSmoothingEnabled = true;
+context.imageSmoothingQuality = "high";
 ```
-  
 
-        
+3. drawing image on canavs from offsetX to offSetY upto newWidth and newHeight
+
+```javascript
+// drawing image on canavs from offsetX to offSetY upto newWidth and newHeight
+context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+frames.currentIndex = index;
+```
+
+image 5
+
+- full code
+
+```javascript
+        //LoadImage funtion logic
+        function loadImage(index){
+            if(index >= 0 && index <= frames.maxIndex) {
+                const img = images[index];
+
+                // setting the w/h of canvas
+                canvas.width = window.innerWidth,
+                canvas.height = window.innerHeight
+
+                // scaling
+                const scaleX = canvas.width / img.width;
+                const scaleY = canvas.height / img.height;
+                //max scale
+                const scale = Math.max(scaleX, scaleY);
+
+                // creting new width and height so that our img take full canvas
+                const newWidth = img.width * scale;
+                const newHeight = img.height * scale;
+
+                // crating center offset
+
+                const offsetX = (canvas.width - newWidth) / 2;
+                const offsetY = (canvas.height - newHeight) / 2;
+
+                // clearing the canavs
+                context.clearRect(0, 0, offsetX, offsetY);
+
+                //sets image smoothing
+                context.imageSmoothingEnabled = true;
+                context.imageSmoothingQuality = "high";
+
+                // drawing image on canavs from offsetX to offSetY upto newWidth and newHeight
+                context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+                frames.currentIndex = index;
+            }
+```        
+
 
 
 
