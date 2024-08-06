@@ -262,7 +262,7 @@ image 5
 
 - 1st we trigger our `.target` which is sticky then we animate it on the basis of scrolling
 
-```
+```javascript
 function startAnimation() {
     // creating a timeline and triggers the .target class
     var tl = gsap.timeline({
