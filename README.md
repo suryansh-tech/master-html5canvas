@@ -16,6 +16,8 @@ image
 
 ## installisition part
 
+- Install the ffmpeg [ you will get in this repo code ]
+
 # Lets Code baby
 
 as we want the animation happens on scroll based. so 1st we make a scroller div warpped with a parent. this scroller div is always sticky and scrolls over the parent div
