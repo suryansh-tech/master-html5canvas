@@ -22,7 +22,7 @@ image
 
 as we want the animation happens on scroll based. so 1st we make a scroller div warpped with a parent. this scroller div is always sticky and scrolls over the parent div
 
-image 1
+![outputs](1.png)
 image 2
 
 ```html
