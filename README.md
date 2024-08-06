@@ -20,7 +20,7 @@ as we want the animation happens on scroll based. so 1st we make a scroller div 
 image 1
 image 2
 
-```
+```html
     <div class="w-full h-screen bg-zinc-900">
         <div class="parent relative top-0 left-0 w-full h-[700vh] bg-zinc-800">
             <div class="w-full sticky top-0 left-0 h-screen bg-red-500">
