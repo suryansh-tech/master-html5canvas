@@ -223,7 +223,6 @@ context.imageSmoothingQuality = "high";
 context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
 frames.currentIndex = index;
 ```
-
 ![output](5.png)
 
 - full code
