@@ -1,12 +1,15 @@
-# master-html 5 canvas
+# Ultimate Canvas Website Animation
 
-## What is CANVAS
-#### HTML5 Canvas is a feature of HTML5 that allows users to draw 2D shapes and bitmap images, interact with graphics on a page, and create animations
+image
+
+## What is CANVAS:
+
+### HTML5 Canvas is a feature of HTML5 that allows users to draw 2D shapes and bitmap images, interact with graphics on a page, and create animations
 
 - in this we learn a scrollbased animtion of html 5 for making this effect we need some stuff
 1. Frames [images]
 2. green sock animation library
-3. love
+3. basic of javascript
 4. ffmpeg software
 
 # lets start 👌
@@ -321,5 +324,128 @@ onUpdate Callback:
 # Contribution
 
 - Feel free to open issues or submit pull requests for improvements and bug fixes. or you can addyour more creativity we add in this repo😘
+
+# Full code 😊
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master HTML 5 CANVAS. GITHUB -- suryansh-tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <div class="w-full h-screen bg-zinc-900">
+        <div class="parent relative top-0 left-0 w-full h-[700vh] bg-zinc-800">
+            <div class="w-full target sticky top-0 left-0 h-screen bg-red-500">
+                <!-- here we write canvas having id and covers full screen-->
+                 <canvas class="w-full h-screen" id="frame"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const context = canvas.getContext("2d");
+
+        //create a frame obj 
+        const frames = {
+            currentIndex: 0,
+            maxIndex: 382
+        };
+
+        // tracking how many images are loaded
+        let imagesLoaded = 0;
+
+        // array of images
+        const images = [];
+
+        // loading function
+        function preloaderImages() {
+            for(var i=0;i<=frames.maxIndex;i++){
+                const imageUrl = `./frames/compressed_frame_${i.toString().padStart(4, "0")}.png`;
+                const img = new Image();
+                img.src = imageUrl;
+                //on loading images 
+                img.onload = () =>{
+                    imagesLoaded++;
+                    if(imagesLoaded === frames.maxIndex) {
+                        loadImage(frames.currentIndex);
+                        startAnimation();
+                    }
+                }
+                images.push(img);
+            }
+        }
+
+        //LoadImage funtion logic
+        function loadImage(index){
+            if(index >= 0 && index <= frames.maxIndex) {
+                const img = images[index];
+
+                // setting the w/h of canvas
+                canvas.width = window.innerWidth,
+                canvas.height = window.innerHeight
+
+                // scaling
+                const scaleX = canvas.width / img.width;
+                const scaleY = canvas.height / img.height;
+                //max scale
+                const scale = Math.max(scaleX, scaleY);
+
+                // creting new width and height so that our img take full canvas
+                const newWidth = img.width * scale;
+                const newHeight = img.height * scale;
+
+                // crating center offset
+
+                const offsetX = (canvas.width - newWidth) / 2;
+                const offsetY = (canvas.height - newHeight) / 2;
+
+                // clearing the canavs
+                context.clearRect(0, 0, offsetX, offsetY);
+
+                //sets image smoothing
+                context.imageSmoothingEnabled = true;
+                context.imageSmoothingQuality = "high";
+
+                // drawing image on canavs from offsetX to offSetY upto newWidth and newHeight
+                context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+                frames.currentIndex = index;
+            }
+
+
+        }
+
+        // animate
+        function startAnimation() {
+            // creating a timeline and triggers the .target class
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".parent",
+                    start: "top top",
+                    scrub: 2,
+                    markers: true
+                }
+            });
+
+            //animate
+            tl.to(frames, {
+                currentIndex: frames.maxIndex,
+                onUpdate: function () {
+                    loadImage(Math.floor(frames.currentIndex))
+                }
+            })
+        }
+    </script>
+
+
+</body>
+</html>
+```
 
 
