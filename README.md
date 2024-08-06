@@ -142,13 +142,58 @@ images.push(img); // saving images into images array variable
 //LoadImage funtion logic
 function loadImage(index){
     if(index >= 0 && index <= frames.maxIndex) {
-        ....
+        const img = images[index];
     }
 }
 ```
 - here `loadImage(index)` the index is come from `loadImage(frames.currentIndex);`from the above code as `preloaderImages()` runs 382 times so we get index from 0 to 382 and this indexes accept the varible of `loadImage(index)` index.
 
-- checks whether a given index is within the valid range of image and its index should be positive         
+- checks whether a given index is within the valid range of image and its index should be positive
+
+- `const img = images[index]` taking out the image from array of images `const images = []`
+
+```html
+const canvas = document.querySelector("canvas");
+
+const context = canvas.getContext("2d");
+```
+- selecting the canavs and creating `context`
+- `context` => The context provides the methods and properties needed to draw and manipulate images, shapes, text, and other visual elements on the canvas.
+
+#### Handling width, Height and scaling of canvas
+
+```javascript
+//LoadImage funtion logic
+function loadImage(index){
+    if(index >= 0 && index <= frames.maxIndex) {
+        const img = images[index];
+
+        // setting the w/h of canvas
+        canvas.width = window.innerWidth,
+        canvas.height = window.innerHeight
+
+        // scaling
+        const scaleX = canvas.width / img.width;
+        const scaleY = canvas.height / img.height;
+        //max scale
+        const scale = Math.max(scaleX, scaleY);
+
+        // creting new width and height so that our img take full canvas
+        const newWidth = img.width * scale;
+        const newHeight = img.height * scale;
+
+        // crating center offset
+
+        const offsetX = (canvas.width - newWidth) / 2;
+        const offsetY = (canvas.height - newHeight) / 2;
+
+    }
+}
+```
+#### Setting our Context 
+
+- so now we tell the Context what to do, How to do
+
         
 
 
