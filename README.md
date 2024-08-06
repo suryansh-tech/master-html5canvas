@@ -40,7 +40,7 @@ image 2
 ## PRELOADER 😎
 As we have a bunch of images nearly [382] so we want that these images load first before scrolling its a good practice other wise our animation is laggy
 
-### Creating a preloader function
+### 1. Creating a preloader function
 
 ```javascript
 <script>
@@ -65,7 +65,7 @@ As we have a bunch of images nearly [382] so we want that these images load firs
 
 image 3
 
-### Creating IMG Tag and stores the src further we will check all images are loaded or not:
+### 2. Creating IMG Tag and stores the src further we will check all images are loaded or not:
 
 image 4
 
@@ -109,9 +109,10 @@ image 4
 
 - Check Completion: After incrementing the counter, it checks if the number of images loaded (imagesLoaded) matches the total number of images (frames.maxIndex). If so, it logs a message to the console indicating that all images have been loaded.
 
-#### after loading all the images we save the img tag into the array
+#### 3. after loading all the images we save the img tag into the array
 
 ```javascript
+// from previous code 
 const imageUrl = `./frames/compressed_frame_${i.toString().padStart(4, "0")}.png`;
 const img = new Image();
 img.src = imageUrl;
@@ -132,7 +133,19 @@ img.onload = () =>{
         loadImage(frames.currentIndex);
     }
 }
-images.push(img);
+images.push(img); // saving images into images array variable
 ```
+
+## LoadImage() 
+
+```javascript
+//LoadImage funtion logic
+        function loadImage(index){
+            if(index >= 0 && index <= frames.maxIndex) {}
+        }
+```        
+- checks whether a given index is within the valid range of image and its index should be positive         
+        
+
 
 
