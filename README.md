@@ -318,4 +318,8 @@ onUpdate Callback:
 
 - Loading Images Dynamically: The `onUpdate` callback ensures that each time the animation updates, a new image is loaded corresponding to the current `currentIndex.` This can be particularly useful for creating animations like a flipbook or a sprite sheet where images need to be sequentially loaded and displayed.
 
+# Contribution
+
+- Feel free to open issues or submit pull requests for improvements and bug fixes. or you can addyour more creativity we add in this repo😘
+
 
