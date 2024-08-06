@@ -44,7 +44,7 @@ As we have a bunch of images nearly [382] so we want that these images load firs
 
 ```javascript
 <script>
-        //create a frame obj 
+        // create a frame obj 
         const frames = {
             currentIndex: 0,
             maxIndex: 382
@@ -53,7 +53,7 @@ As we have a bunch of images nearly [382] so we want that these images load firs
         // loading function
         function preloaderImages() {
             // generated url name for images 
-            for(var i=0;i<frames.maxIndex;i++){
+            for(var i=0;i<=frames.maxIndex;i++){
                 const imageUrl = `./frames/compressed_frame_${i.toString().padStart(4, "0")}.png`
             }
         }
@@ -62,5 +62,51 @@ As we have a bunch of images nearly [382] so we want that these images load firs
 
 1. Configure Frame Settings: Modify the frames object to set the currentIndex and maxIndex based on your needs.
 2. Preload Images: Call the preloaderImages function to generate the URLs for your images. from **0001 t0 0382**.
+
+image 3
+
+### Creating <IMG> Tag:
+
+image 4
+
+now inside loader funtion we make a new image and store the src into img tag from **0001 t0 0382**
+
+```javascript
+<script>
+        //create a frame obj 
+        const frames = {
+            currentIndex: 0,
+            maxIndex: 382
+        };
+
+        // tracking how many images are loaded
+        let imagesLoaded = 0;
+
+        // loading function
+        function preloaderImages() {
+            for(var i=0;i<=frames.maxIndex;i++){
+                const imageUrl = `./frames/compressed_frame_${i.toString().padStart(4, "0")}.png`;
+                const img = new Image();
+                img.src = imageUrl;
+                //on loading images 
+                img.onload = () =>{
+                    imagesLoaded++;
+                    if(imagesLoaded === frames.maxIndex) {
+                        console.log("all images are loaded")
+                    }
+                }
+            }
+        }
+    </script>
+```
+
+#### Here's a breakdown of how it works:
+
+1. Create Image Objects: For each URL, it creates a new Image object and sets its src attribute to the generated URL. This triggers the browser to start loading the image.
+2. Track Loaded Images: It adds an onload event listener to each image. When an image successfully loads, it increments the imagesLoaded counter.
+
+- Check Completion: After incrementing the counter, it checks if the number of images loaded (imagesLoaded) matches the total number of images (frames.maxIndex). If so, it logs a message to the console indicating that all images have been loaded.
+
+
 
 
