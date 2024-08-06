@@ -92,7 +92,8 @@ image 4
                 img.onload = () =>{
                     imagesLoaded++;
                     if(imagesLoaded === frames.maxIndex) {
-                        console.log("all images are loaded")
+                        console.log("all images are loaded");
+                        // startAnimation(); runs this fun after writing making it which is animte part at bottom of this repo 
                     }
                 }
             }
@@ -260,14 +261,14 @@ image 5
 
 # BEST PART THE ANIMATION 😍
 
-- 1st we trigger our `.target` which is sticky then we animate it on the basis of scrolling
+- 1st we trigger our `.parent` which is wrapper of sticky bc we scroll on parent not the sticky part then we animate it on the basis of scrolling
 
 ```javascript
 function startAnimation() {
     // creating a timeline and triggers the .target class
     var tl = gsap.timeline({
         scrollTrigger: {
-            trigger: ".target",
+            trigger: ".parent",
             start: "top top",
             scrub: 2,
             markers: true
@@ -283,6 +284,38 @@ ScrollTrigger Configuration:
 2. scrollTrigger: An object passed to the timeline configuration that enables scroll-based animations. It specifies how the animation should interact with scrolling.
 ScrollTrigger Properties:
 `
+----
 
+```javascript
+//animate
+tl.to(frames, {
+    currentIndex: frames.maxIndex,
+    onUpdate: function () {
+        loadImage(Math.floor(frames.currentIndex))
+    }
+})
+```
+
+### Breakdown
+
+GSAP Timeline:
+
+- `tl.to():` This method animates the frames object. The `to()` method is used to animate properties of the target object (frames in this case) from its current values to the specified values over time.
+Target Object (frames):
+
+- `frames:` This is the object being animated. It contains properties such as currentIndex and maxIndex.
+Animation Properties:
+
+- currentIndex: frames.maxIndex: Specifies that the currentIndex property of the frames object should animate from its current value to the value of frames.maxIndex. This means that as the animation progresses, currentIndex will gradually increase until it reaches maxIndex.
+onUpdate Callback:
+
+- onUpdate: This callback function is called on every update of the animation (i.e., as the animation progresses over time).
+`function () { loadImage(Math.floor(frames.currentIndex)); }`: Inside this callback, loadImage is called with the current value of frames.currentIndex (rounded down to the nearest integer using Math.floor). This means that as the animation progresses and currentIndex changes, the loadImage function will be triggered to load images corresponding to the updated index.
+
+### Understand the Purpose
+
+- Animating Image Loading: This setup is useful for scenarios where you want to create a smooth transition between images based on the scroll or any other time-based animation. By animating `currentIndex`, you can control which image is currently visible or loaded in response to the animation progress.
+
+- Loading Images Dynamically: The `onUpdate` callback ensures that each time the animation updates, a new image is loaded corresponding to the current `currentIndex.` This can be particularly useful for creating animations like a flipbook or a sprite sheet where images need to be sequentially loaded and displayed.
 
 
