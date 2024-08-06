@@ -154,7 +154,6 @@ function loadImage(index){
 
 ```html
 const canvas = document.querySelector("canvas");
-
 const context = canvas.getContext("2d");
 ```
 - selecting the canavs and creating `context`
@@ -183,7 +182,6 @@ function loadImage(index){
         const newHeight = img.height * scale;
 
         // crating center offset
-
         const offsetX = (canvas.width - newWidth) / 2;
         const offsetY = (canvas.height - newHeight) / 2;
 
