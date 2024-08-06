@@ -224,7 +224,7 @@ context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
 frames.currentIndex = index;
 ```
 
-![outputs](5.png)
+![output](5.png)
 
 - full code
 
