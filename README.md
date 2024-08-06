@@ -65,11 +65,11 @@ As we have a bunch of images nearly [382] so we want that these images load firs
 
 image 3
 
-### Creating <IMG> Tag:
+### Creating IMG Tag and stores the src further we will check all images are loaded or not:
 
 image 4
 
-now inside loader funtion we make a new image and store the src into img tag from **0001 t0 0382**
+- Now inside loader funtion we make a new image and store the src into img tag from **0001 t0 0382** 
 
 ```javascript
 <script>
@@ -97,6 +97,8 @@ now inside loader funtion we make a new image and store the src into img tag fro
                 }
             }
         }
+
+        preloaderImages();
     </script>
 ```
 
@@ -107,6 +109,30 @@ now inside loader funtion we make a new image and store the src into img tag fro
 
 - Check Completion: After incrementing the counter, it checks if the number of images loaded (imagesLoaded) matches the total number of images (frames.maxIndex). If so, it logs a message to the console indicating that all images have been loaded.
 
+#### after loading all the images we save the img tag into the array
 
+```javascript
+const imageUrl = `./frames/compressed_frame_${i.toString().padStart(4, "0")}.png`;
+const img = new Image();
+img.src = imageUrl;
+```
+we have to save these images into the array 
+
+```javascript
+// creating array of images
+        const images = [];
+```
+then after loading each img one by one we pust into the array
+
+```javascript
+//on loading images 
+img.onload = () =>{
+    imagesLoaded++;
+    if(imagesLoaded === frames.maxIndex) {
+        loadImage(frames.currentIndex);
+    }
+}
+images.push(img);
+```
 
 
