@@ -190,7 +190,21 @@ function loadImage(index){
 ```
 ### Setting our Context 
 
-- so now we tell the Context what to do, How to do
+- so now we tell the Context what to do, and How to do
+
+1. cleaing the canvas from position (0,0) up to full witdth and height
+
+```javascript
+// clearing the canavs
+context.clearRect(0, 0, offsetX, offsetY);
+```
+2. drawing image on canavs from offsetX to offSetY upto newWidth and newHeight
+
+```javascript
+// clearing the canavs
+context.clearRect(0, 0, offsetX, offsetY);
+```
+  
 
         
 
