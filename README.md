@@ -29,3 +29,9 @@ image 2
         </div>
     </div>
 ```
+
+```html
+<div class="w-full sticky top-0 left-0 h-screen bg-red-500">
+```
+
+` this will stick our scroller div to screen height so when we scroll its move over the wrapper which is 700vh height
