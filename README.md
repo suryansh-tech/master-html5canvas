@@ -255,8 +255,34 @@ image 5
                 context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
                 frames.currentIndex = index;
             }
+        }
 ```        
 
+# BEST PART THE ANIMATION 😍
+
+- 1st we trigger our `.target` which is sticky then we animate it on the basis of scrolling
+
+```
+function startAnimation() {
+    // creating a timeline and triggers the .target class
+    var tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".target",
+            start: "top top",
+            scrub: 2,
+            markers: true
+        }
+    });
+}
+```
+
+`
+1. gsap.timeline(): Creates a new GSAP timeline. A timeline allows you to chain multiple animations together and control their sequencing.
+ScrollTrigger Configuration:
+
+2. scrollTrigger: An object passed to the timeline configuration that enables scroll-based animations. It specifies how the animation should interact with scrolling.
+ScrollTrigger Properties:
+`
 
 
 
