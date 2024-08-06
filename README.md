@@ -71,11 +71,11 @@ As we have a bunch of images nearly [382] so we want that these images load firs
 1. Configure Frame Settings: Modify the frames object to set the currentIndex and maxIndex based on your needs.
 2. Preload Images: Call the preloaderImages function to generate the URLs for your images. from **0001 t0 0382**.
 
-image 3
+![outputs](3.png)
 
 ### 2. Creating IMG Tag and stores the src further we will check all images are loaded or not:
 
-image 4
+![outputs](4.png)
 
 - Now inside loader funtion we make a new image and store the src into img tag from **0001 t0 0382** 
 
@@ -224,7 +224,7 @@ context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
 frames.currentIndex = index;
 ```
 
-image 5
+![outputs](5.png)
 
 - full code
 
