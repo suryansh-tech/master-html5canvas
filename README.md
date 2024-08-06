@@ -136,14 +136,18 @@ img.onload = () =>{
 images.push(img); // saving images into images array variable
 ```
 
-## LoadImage() 
+## LoadImage() Logic
 
 ```javascript
 //LoadImage funtion logic
-        function loadImage(index){
-            if(index >= 0 && index <= frames.maxIndex) {}
-        }
-```        
+function loadImage(index){
+    if(index >= 0 && index <= frames.maxIndex) {
+        ....
+    }
+}
+```
+- here `loadImage(index)` the index is come from `loadImage(frames.currentIndex);`from the above code as `preloaderImages()` runs 382 times so we get index from 0 to 382 and this indexes accept the varible of `loadImage(index)` index.
+
 - checks whether a given index is within the valid range of image and its index should be positive         
         
 
