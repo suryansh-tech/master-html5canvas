@@ -159,7 +159,7 @@ const context = canvas.getContext("2d");
 - selecting the canavs and creating `context`
 - `context` => The context provides the methods and properties needed to draw and manipulate images, shapes, text, and other visual elements on the canvas.
 
-#### Handling width, Height and scaling of canvas
+### Handling width, Height and scaling of canvas
 
 ```javascript
 //LoadImage funtion logic
@@ -188,7 +188,7 @@ function loadImage(index){
     }
 }
 ```
-#### Setting our Context 
+### Setting our Context 
 
 - so now we tell the Context what to do, How to do
 
