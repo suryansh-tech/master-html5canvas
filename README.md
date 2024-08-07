@@ -344,16 +344,19 @@ onUpdate Callback:
 </head>
 <body>
     
-    <div class="w-full h-screen bg-zinc-900">
-        <div class="parent relative top-0 left-0 w-full h-[700vh] bg-zinc-800">
-            <div class="w-full target sticky top-0 left-0 h-screen bg-red-500">
+    <div class="w-full h-screen">
+        <div class="parent relative top-0 left-0 w-full h-[700vh]">
+            <div class="w-full target sticky top-0 left-0 h-screen">
                 <!-- here we write canvas having id and covers full screen-->
                  <canvas class="w-full h-screen" id="frame"></canvas>
             </div>
         </div>
     </div>
 
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <script>
         const canvas = document.querySelector("canvas");
         const context = canvas.getContext("2d");
@@ -373,7 +376,7 @@ onUpdate Callback:
         // loading function
         function preloaderImages() {
             for(var i=0;i<=frames.maxIndex;i++){
-                const imageUrl = `./frames/compressed_frame_${i.toString().padStart(4, "0")}.png`;
+                const imageUrl = `./frames/frame_${i.toString().padStart(4, "0")}.jpg`;
                 const img = new Image();
                 img.src = imageUrl;
                 //on loading images 
@@ -435,7 +438,7 @@ onUpdate Callback:
                     trigger: ".parent",
                     start: "top top",
                     scrub: 2,
-                    markers: true
+                    // markers: true
                 }
             });
 
@@ -447,6 +450,8 @@ onUpdate Callback:
                 }
             })
         }
+
+        preloaderImages()
     </script>
 
 
