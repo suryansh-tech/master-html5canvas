@@ -6,7 +6,7 @@
 
 ---
 
-
+![giff](smaple.gif)
 
 ## What is CANVAS:
 
