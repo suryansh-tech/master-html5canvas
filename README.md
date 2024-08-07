@@ -41,6 +41,8 @@ as we want the animation happens on scroll based. so 1st we make a scroller div 
     </div>
 ```
 
+``` we remove `bg-zinc-800`, `bg-zinc-900` and `bg-red-500` at last these are only for your unterstanding ```
+
 ```html
 <div class="w-full sticky top-0 left-0 h-screen bg-red-500">
 ```
