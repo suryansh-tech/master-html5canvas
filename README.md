@@ -56,7 +56,7 @@ As we have a bunch of images nearly [382] so we want that these images load firs
 <script>
         // create a frame obj 
         const frames = {
-            currentIndex: 0,
+            currentIndex: 1,
             maxIndex: 382
         };
 
@@ -64,7 +64,7 @@ As we have a bunch of images nearly [382] so we want that these images load firs
         function preloaderImages() {
             // generated url name for images 
             for(var i=0;i<=frames.maxIndex;i++){
-                const imageUrl = `./frames/compressed_frame_${i.toString().padStart(4, "0")}.png`
+                const imageUrl = `./frames/frame_${i.toString().padStart(4, "0")}.png`
             }
         }
     </script>
