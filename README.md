@@ -6,7 +6,7 @@
 
 ---
 
-![vid](sample.mp4)
+![vid](smaple.mp4)
 
 ## What is CANVAS:
 
