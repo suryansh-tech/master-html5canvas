@@ -134,7 +134,7 @@ we have to save these images into the array
 
 ```javascript
 // creating array of images
-        const images = [];
+const images = [];
 ```
 then after loading each img one by one we pust into the array
 
