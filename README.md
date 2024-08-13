@@ -44,6 +44,7 @@ as we want the animation happens on scroll based. so 1st we make a scroller div 
         </div>
     </div>
 ```
+``` if you want it soo smooth then inc the h-[700vh] more```
 
 ``` we remove `bg-zinc-800`, `bg-zinc-900` and `bg-red-500` at last these are only for your unterstanding ```
 
